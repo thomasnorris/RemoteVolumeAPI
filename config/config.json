@@ -10,5 +10,5 @@
         }
     ],
     "port": 1010,
-    "file_path": process.env.USERPROFILE + "\\Desktop\\"
+    "scripts_dir": "/bin/scripts/"
 }

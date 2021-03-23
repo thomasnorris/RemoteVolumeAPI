@@ -34,7 +34,7 @@
     console.log('Ready, listening on port ' + _cfg.port);
 
     function getFilePath(name) {
-        return _cfg.file_path + name;
+        return _cfg.scripts_dir + name;
     }
 
     function readJson(filePath) {
