@@ -12,7 +12,7 @@
     _cfg.endpoint_file_pairs.forEach((pair, idx) => {
         _app.get(pair.endpoint, (req, res) => {
             let file_path = getFilePath(pair.file);
-            _cp.exec(file_path);
+            _cp.exec(file_path + ' ' + _cfg.sound_volume_view_dir);
 
             let res_str = 'Executed: ' + file_path;
             res.send(res_str);

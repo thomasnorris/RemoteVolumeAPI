@@ -10,5 +10,6 @@
         }
     ],
     "port": 1010,
-    "scripts_dir": "/bin/scripts/"
+    "scripts_dir": "/scripts/",
+    "sound_volume_view_dir": "%USERPROFILE%/Google Drive/Portable Tools/Windows/soundvolumeview-x64/"
 }
