@@ -11,7 +11,7 @@
 
 ## Usage
 - Create a shortcut for `scripts/LAUNCH.bat` and place in a desired location.
-- Edit this shortcut:
-    - In the `Target:` field, append the directory of the `node.exe` executable
+- Edit the shortcut:
+    - In the `Target:` field, append the directory of the `node.exe` executable.
 - Run the shortcut to start.
 - Endpoints can be called using `curl`, [Postman](https://www.postman.com/), etc.
