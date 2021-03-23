@@ -3,6 +3,9 @@
     let _cp = require('child_process');
     let _app = _express();
 
+    var _path = require('path');
+    var _logger = require(_path.resolve(__dirname, 'Node-Logger', 'app.js'));
+
     let SETTINGS = {
         endpoint_file_pairs: [
             {
