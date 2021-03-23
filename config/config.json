@@ -1,0 +1,14 @@
+{
+    "endpoint_file_pairs": [
+        {
+            "endpoint": "/set100/",
+            "file": "SetRemoteAudio100.bat"
+        },
+        {
+            "endpoint": "/set25/",
+            "file": "SetRemoteAudio25.bat"
+        }
+    ],
+    "port": 1010,
+    "file_path": process.env.USERPROFILE + "\\Desktop\\"
+}

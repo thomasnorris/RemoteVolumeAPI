@@ -1,27 +1,15 @@
 (function() {
+    let _path = require('path');
+    const CFG_FILE = _path.resolve(__dirname, 'config', 'config.json');
+    let _cfg = readJson(CFG_FILE);
+
     let _express = require('express');
     let _cp = require('child_process');
     let _app = _express();
 
-    var _path = require('path');
-    var _logger = require(_path.resolve(__dirname, 'Node-Logger', 'app.js'));
+    let _logger = require(_path.resolve(__dirname, 'Node-Logger', 'app.js'));
 
-    let SETTINGS = {
-        endpoint_file_pairs: [
-            {
-                endpoint: '/set100/',
-                file: 'SetRemoteAudio100.bat'
-            },
-            {
-                endpoint: '/set25/',
-                file: 'SetRemoteAudio25.bat'
-            }
-        ],
-        port: 1010,
-        file_path: process.env.USERPROFILE + '\\Desktop\\'
-    };
-
-    SETTINGS.endpoint_file_pairs.forEach((pair, idx) => {
+    _cfg.endpoint_file_pairs.forEach((pair, idx) => {
         _app.get(pair.endpoint, (req, res) => {
             let file_path = getFilePath(pair.file);
             _cp.exec(file_path);
@@ -41,11 +29,17 @@
     });
 
     _app.set('json spaces', 4);
-    _app.listen(SETTINGS.port);
+    _app.listen(_cfg.port);
 
-    console.log('Ready, listening on port ' + SETTINGS.port);
+    console.log('Ready, listening on port ' + _cfg.port);
 
     function getFilePath(name) {
-        return SETTINGS.file_path + name;
+        return _cfg.file_path + name;
+    }
+
+    function readJson(filePath) {
+        var fs = require('fs');
+        var path = require('path');
+        return JSON.parse(fs.readFileSync(path.resolve(__dirname, filePath), 'utf8'));
     }
 })();
