@@ -6,5 +6,3 @@ set node_loc="%1"
 cd "%node_loc%"
 
 node %app%
-
-pause
