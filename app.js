@@ -12,12 +12,13 @@
     _cfg.endpoint_file_pairs.forEach((pair, idx) => {
         _app.get(pair.endpoint, (req, res) => {
             let file_path = getFilePath(pair.file);
-            _cp.exec(file_path + ' ' + _cfg.sound_volume_view_dir);
+            _cp.exec(__dirname + file_path + ' "' + _cfg.sound_volume_view_dir + '"', (err, stdout, stderr) => {
+                let res_str = 'Executed: ' + file_path;
 
-            let res_str = 'Executed: ' + file_path;
-            res.send(res_str);
-            console.log(res_str);
-            _logger.Info.Async(res_str);
+                console.log(res_str);
+                _logger.Info.Async(res_str);
+                res.send(res_str);
+            });
         });
     });
 
