@@ -29,6 +29,7 @@
             let res_str = 'Executed: ' + file_path;
             res.send(res_str);
             console.log(res_str);
+            _logger.Info.Async(res_str);
         });
     });
 
@@ -36,6 +37,7 @@
         let res_str = 'GET: /';
         res.send(res_str);
         console.log(res_str);
+        _logger.Info.Async(res_str);
     });
 
     _app.set('json spaces', 4);
